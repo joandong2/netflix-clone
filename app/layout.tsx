@@ -11,6 +11,7 @@ export default function RootLayout({
     <html>
       <head></head>
       <body>
+        {/* @ts-ignore */}
         <Header />
         {children}
       </body>

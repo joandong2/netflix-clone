@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   images: {
-    domains: ["links.papareact.com"],
+    domains: ["api.themoviedb.org", "image.tmdb.org"],
   },
   reactStrictMode: true,
   experimental: {
     appDir: true,
   },
-}
+};
