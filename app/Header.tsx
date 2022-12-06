@@ -13,47 +13,49 @@ const Header = async () => {
 
   return (
     <>
-      <div className="flex mx-auto justify-between p-5 relative">
-        <div className="flex justify-center items-center gap-4 text-[13px]">
-          <img src="./R.png" alt="netflix logo" className="max-h-12" />
-          <ul className="flex gap-3 font-bold transition ease-in duration-150 ">
-            <li>
-              <a className="text-gray-500 hover:text-gray-700" href="#">
-                Home
-              </a>
-            </li>
-            <li>
-              <a className="text-gray-500 hover:text-gray-700" href="#">
-                TV Shows
-              </a>
-            </li>
-            <li>
-              <a className="text-gray-500 hover:text-gray-700" href="#">
-                Movies
-              </a>
-            </li>
-            <li>
-              <a className="text-gray-500 hover:text-gray-700" href="#">
-                Recently Added
-              </a>
-            </li>
-            <li>
-              <a className="text-gray-500 hover:text-gray-700" href="#">
-                My List
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div>
+      <div className="p-9 relative z-10 h-screen">
+        <div className="flex justify-between text-[13px] items-center">
+          <div className="flex justify-betweeen gap-6 items-center">
+            <img src="./R.png" alt="netflix logo" className="max-h-[40px]" />
+            <ul className="flex gap-3 font-bold transition ease-in duration-150 ">
+              <li>
+                <a className="text-light-gray hover:text-dark-gray" href="#">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a className="text-light-gray hover:text-dark-gray" href="#">
+                  TV Shows
+                </a>
+              </li>
+              <li>
+                <a className="text-light-gray hover:text-dark-gray" href="#">
+                  Movies
+                </a>
+              </li>
+              <li>
+                <a className="text-light-gray hover:text-dark-gray" href="#">
+                  Recently Added
+                </a>
+              </li>
+              <li>
+                <a className="text-light-gray hover:text-dark-gray" href="#">
+                  My List
+                </a>
+              </li>
+            </ul>
+          </div>
+
           <ul className="flex gap-4">
             <li>Search</li>
             <li>Notification</li>
             <li>Account</li>
           </ul>
         </div>
+
         <Banner trending={trending} />
+        <div className="fadeBottom"></div>
       </div>
-      {/* @ts-ignore */}
     </>
   );
 };
