@@ -11,8 +11,11 @@ export default function RootLayout({
     <html>
       <head></head>
       <body>
-        <Sidebar />
-        <main className="ml-[120px] mt-[40px] gh">{children}</main>
+        <main className="ml-[120px] mt-[40px] relative">
+          {children}
+          <Sidebar />
+        </main>
+
         {/* @ts-ignore */}
       </body>
     </html>

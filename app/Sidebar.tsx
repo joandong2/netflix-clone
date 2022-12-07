@@ -11,80 +11,77 @@ import { FaLaptop, FaShapes } from "react-icons/fa";
 import { CgClapperBoard } from "react-icons/cg";
 const Sidebar = () => {
   return (
-    <>
-      <div className="group p-7 absolute top-0 left-0 w-[120px] border border-white hover:w-[250px] h-screen flex justify-between flex-col">
-        <div className="hidden group-hover:block">
-          <div className="flex">
-            <div></div>
+    <div className="group fixed top-0 left-0 h-screen z-10">
+      <div className="p-7 w-[120px]  group-hover:w-[180px] h-screen flex justify-between flex-col border border-white">
+        <div className="invisible group-hover:visible">
+          <div className="flex gap-4 items-center">
+            <div className="w-[30px] h-[30px] bg-red-700 mr-5"></div>
             <div>
               <p>Angel</p>
             </div>
           </div>
-          <div className="flex">
-            <div></div>
-            <div>
-              <p>Angel</p>
-            </div>
-          </div>
+          {/*end*/}
         </div>
-        <ul className="">
+
+        <ul>
           <li>
-            <a href="#" className="flex gap-2">
-              <AiOutlineSearch />
-              <span className="hidden group-hover:block">Search</span>
+            <a href="#" className="flex">
+              <div className="w-[24px]">
+                <AiOutlineSearch />
+              </div>
+              <span className="invisible group-hover:visible">Search</span>
             </a>
           </li>
           <li>
-            <a href="#" className="flex gap-2">
-              <AiOutlineHome />
-              <span className="hidden group-hover:block">Home</span>
+            <a href="#" className="flex">
+              <div className="w-[24px]">
+                <AiOutlineHome />
+              </div>
+              <span className="invisible group-hover:visible">Home</span>
             </a>
           </li>
           <li>
-            <a href="#" className="flex gap-2">
-              <BiShuffle />
-              <span className="hidden group-hover:block">Surprise Me</span>
+            <a href="#" className="flex">
+              <div className="w-[24px]">
+                <BiTrendingUp />
+              </div>
+              <span className="invisible group-hover:visible">Popular</span>
             </a>
           </li>
           <li>
-            <a href="#" className="flex gap-2">
-              <BiTrendingUp />
-              <span className="hidden group-hover:block">New & Popular</span>
+            <a href="#" className="flex">
+              <div className="w-[24px]">
+                <CgClapperBoard />
+              </div>
+              <span className="invisible group-hover:visible">Movies</span>
             </a>
           </li>
           <li>
-            <a href="#" className="flex gap-2">
-              <FaLaptop />
-              <span className="hidden group-hover:block">TV Shows</span>
+            <a href="#" className="flex">
+              <div className="w-[24px]">
+                <FaShapes />
+              </div>
+              <span className="invisible group-hover:visible">Categories</span>
             </a>
           </li>
           <li>
-            <a href="#" className="flex gap-2">
-              <CgClapperBoard />
-              <span className="hidden group-hover:block">Movies</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" className="flex gap-2">
-              <FaShapes />
-              <span className="hidden group-hover:block">Categories</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" className="flex gap-2">
-              <AiOutlinePlus />
-              <span className="hidden group-hover:block">My List</span>
+            <a href="#" className="flex">
+              <div className="w-[24px]">
+                <AiOutlinePlus />
+              </div>
+              <span className="invisible group-hover:visible">My List</span>
             </a>
           </li>
         </ul>
-        <div className="hidden group-hover:block">
-          <a>
+
+        <div className="invisible group-hover:visible">
+          <a href="#" className="">
             <AiOutlineBell />
-            <span className="hidden group-hover:block">Notifications</span>
+            <span>Notifications</span>
           </a>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

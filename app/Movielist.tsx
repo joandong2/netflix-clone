@@ -1,6 +1,6 @@
 import React from "react";
 import { Movie, Movies } from "../typing";
-import Banner from "./Banner";
+import Image from "next/image";
 
 async function getMovieLists() {
   const [popularResults, trendingResults] = await Promise.all([
@@ -31,7 +31,18 @@ const Movielist = async () => {
       <div>
         <h2 className="font-bold text-red-600">Popular</h2>
         {popular?.map((movie) => (
-          <div key={movie.id}>{movie.original_title}</div>
+          <div key={movie.id}>
+            {/* @ts-ignore */}
+            <Image
+              src={`https://image.tmdb.org/t/p/original${
+                movie?.backdrop_path || movie?.poster_path
+              }`}
+              alt="banner"
+              width="200"
+              height="200"
+            />
+            {movie.original_title}
+          </div>
         ))}
       </div>
     </>

@@ -1,0 +1,70 @@
+<div className="hidden group-hover:block">
+          <div className="flex">
+            <div></div>
+            <div>
+              <p>Angel</p>
+            </div>
+          </div>
+          <div className="flex">
+            <div></div>
+            <div>
+              <p>Angel</p>
+            </div>
+          </div>
+        </div>
+        <ul className="justify-evenly flex space-y-9 group-hover:space-y-8 flex-col">
+          <li>
+            <a href="#" className="flex gap-4 items-center">
+              <AiOutlineSearch />
+              <span className="hidden group-hover:block">Search</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" className="flex gap-4 items-center">
+              <AiOutlineHome />
+              <span className="hidden group-hover:block">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" className="flex gap-4 items-center">
+              <BiShuffle />
+              <span className="hidden group-hover:block">Surprise Me</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" className="flex gap-4 items-center">
+              <BiTrendingUp />
+              <span className="hidden group-hover:block">New & Popular</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" className="flex gap-4 items-center">
+              <FaLaptop />
+              <span className="hidden group-hover:block">TV Shows</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" className="flex gap-4 items-center">
+              <CgClapperBoard />
+              <span className="hidden group-hover:block">Movies</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" className="flex gap-4 items-center">
+              <FaShapes />
+              <span className="hidden group-hover:block">Categories</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" className="flex gap-4 items-center">
+              <AiOutlinePlus />
+              <span className="hidden group-hover:block">My List</span>
+            </a>
+          </li>
+        </ul>
+        <div className="invisible group-hover:visible">
+          <a href="#" className="flex gap-2 items-center">
+            <AiOutlineBell />
+            <span className="hidden group-hover:block">Notifications</span>
+          </a>
+        </div>
