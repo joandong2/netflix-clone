@@ -22,26 +22,33 @@ async function getMovieLists() {
   };
 }
 
+// height 297
+// width 164
+
+// originals
+// height
+// width
+
 const Movielist = async () => {
   const { popular, trending }: { popular: Movie[]; trending: Movie[] } =
     await getMovieLists();
 
   return (
     <>
+      <h2 className="text-[32px] font-bold text-red-600">Popular</h2>
       <div>
-        <h2 className="font-bold text-red-600">Popular</h2>
-        {popular?.map((movie) => (
+        {trending?.map((movie) => (
           <div key={movie.id}>
             {/* @ts-ignore */}
             <Image
               src={`https://image.tmdb.org/t/p/original${
                 movie?.backdrop_path || movie?.poster_path
               }`}
-              alt="banner"
-              width="200"
-              height="200"
+              alt="image-banner"
+              width="300"
+              height="165"
             />
-            {movie.original_title}
+            <h2>{movie.original_title}</h2>
           </div>
         ))}
       </div>

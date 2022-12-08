@@ -12,20 +12,26 @@ import { CgClapperBoard } from "react-icons/cg";
 const Sidebar = () => {
   return (
     <div className="group fixed top-0 left-0 h-screen z-10">
-      <div className="p-7 w-[120px]  group-hover:w-[180px] h-screen flex justify-between flex-col border border-white">
+      <div className="p-12 h-screen flex justify-between flex-col">
         <div className="invisible group-hover:visible">
-          <div className="flex gap-4 items-center">
-            <div className="w-[30px] h-[30px] bg-red-700 mr-5"></div>
+          <div className="flex gap-4 items-center mb-4">
+            <div className="w-[30px] h-[30px] bg-red-700"></div>
             <div>
-              <p>Angel</p>
+              <p>John O.</p>
+            </div>
+          </div>
+          <div className="flex gap-4 items-center mb-4">
+            <div className="w-[30px] h-[30px] bg-blue-800"></div>
+            <div>
+              <p>Joanne O.</p>
             </div>
           </div>
           {/*end*/}
         </div>
 
-        <ul>
+        <ul className="flex space-y-8 flex-col">
           <li>
-            <a href="#" className="flex">
+            <a href="#" className="flex gap-3 items-center">
               <div className="w-[24px]">
                 <AiOutlineSearch />
               </div>
@@ -33,7 +39,7 @@ const Sidebar = () => {
             </a>
           </li>
           <li>
-            <a href="#" className="flex">
+            <a href="#" className="flex gap-3 items-center">
               <div className="w-[24px]">
                 <AiOutlineHome />
               </div>
@@ -41,15 +47,17 @@ const Sidebar = () => {
             </a>
           </li>
           <li>
-            <a href="#" className="flex">
+            <a href="#" className="flex gap-3 items-center">
               <div className="w-[24px]">
                 <BiTrendingUp />
               </div>
-              <span className="invisible group-hover:visible">Popular</span>
+              <span className="invisible group-hover:visible">
+                New & Popular
+              </span>
             </a>
           </li>
           <li>
-            <a href="#" className="flex">
+            <a href="#" className="flex gap-3 items-center">
               <div className="w-[24px]">
                 <CgClapperBoard />
               </div>
@@ -57,7 +65,15 @@ const Sidebar = () => {
             </a>
           </li>
           <li>
-            <a href="#" className="flex">
+            <a href="#" className="flex gap-3 items-center">
+              <div className="w-[24px]">
+                <AiOutlineLaptop />
+              </div>
+              <span className="invisible group-hover:visible">TV Shows</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" className="flex gap-3 items-center">
               <div className="w-[24px]">
                 <FaShapes />
               </div>
@@ -65,7 +81,7 @@ const Sidebar = () => {
             </a>
           </li>
           <li>
-            <a href="#" className="flex">
+            <a href="#" className="flex gap-3 items-center">
               <div className="w-[24px]">
                 <AiOutlinePlus />
               </div>
@@ -75,11 +91,12 @@ const Sidebar = () => {
         </ul>
 
         <div className="invisible group-hover:visible">
-          <a href="#" className="">
-            <AiOutlineBell />
+          <a href="#" className="flex">
+            <AiOutlineBell className="w-[24px]" />
             <span>Notifications</span>
           </a>
         </div>
+        <div className="fade h-screen w-full invisible group-hover:visible absolute top-0 left-0 z-[-1]"></div>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/globals.css";
-import Sidebar from "./Sidebar";
+import Footer from "./Footer";
+import Header from "./Header";
 
 export default function RootLayout({
   children,
@@ -11,12 +12,10 @@ export default function RootLayout({
     <html>
       <head></head>
       <body>
-        <main className="ml-[120px] mt-[40px] relative">
-          {children}
-          <Sidebar />
-        </main>
-
         {/* @ts-ignore */}
+        <Header />
+        <main className="relative z-10">{children}</main>
+        <Footer />
       </body>
     </html>
   );
