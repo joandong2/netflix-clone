@@ -76,11 +76,35 @@ main {
   position: absolute;
 }
 
-.movie-title {
+.movie__title {
   font-family: "Bungee Shade", cursive;
   font-size: 72px;
   line-height: 78px;
   color: #e9292c;
+}
+
+.movie__list {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding: 20px;
+}
+
+.movie__list::-webkit-scrollbar {
+  display: none;
+}
+
+.movie__thumb {
+  max-width: 300px;
+  min-width: 300px;
+  min-height: 165px;
+  cursor: pointer;
+  object-fit: contain;
+  transition: transform 450ms;
+}
+
+.movie__thumb:hover {
+  transform: scale(1.08);
 }
 
 /* .group a,

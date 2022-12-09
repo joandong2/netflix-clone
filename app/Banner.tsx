@@ -31,7 +31,7 @@ const Banner = ({ trending }: { trending: Movie[] }) => {
               alt="banner"
             />
             <div className="z-10 relative align-center flex flex-col justify-center h-screen px-2">
-              <h1 className="movie-title text-3xl mb-5">
+              <h1 className="movie__title text-3xl mb-5">
                 {trending[1].original_title}
               </h1>
               <p className="w-[40%] text-[24px] leading-[30px] mb-5">
