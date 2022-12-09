@@ -25,17 +25,17 @@ const Banner = ({ trending }: { trending: Movie[] }) => {
           <>
             <Image
               src={`https://image.tmdb.org/t/p/original${
-                trending[1]?.backdrop_path || trending[1]?.poster_path
+                trending[0]?.backdrop_path || trending[0]?.poster_path
               }`}
               layout="fill"
               alt="banner"
             />
             <div className="z-10 relative align-center flex flex-col justify-center h-screen px-2">
               <h1 className="movie__title text-3xl mb-5">
-                {trending[1].original_title}
+                {trending[0].original_title}
               </h1>
               <p className="w-[40%] text-[24px] leading-[30px] mb-5">
-                {trending[1].overview}
+                {trending[0].overview}
               </p>
               <div className="flex gap-4">
                 <button className="text-[20px] bg-white hover:bg-light-gray text-black font-bold py-2 px-4 rounded inline-flex items-center">

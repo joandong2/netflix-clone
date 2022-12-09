@@ -28,7 +28,8 @@ const Movielist = async () => {
 
   return (
     <>
-      <Rows trending={trending} popular={popular} />
+      <Rows title="Trending" movies={trending} />
+      <Rows title="Popular" movies={popular} />
     </>
   );
 };
