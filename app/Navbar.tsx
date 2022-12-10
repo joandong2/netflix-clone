@@ -7,7 +7,7 @@ const Navbar = () => {
   const [fixedNavbar, setfixedNavbar] = useState<boolean>(false);
 
   const changeNavbar = () => {
-    console.log(window.scrollY);
+    //console.log(window.scrollY);
     if (window.scrollY >= 66) {
       setfixedNavbar(true);
     } else {

@@ -20,7 +20,7 @@ const Banner = ({ trending }: { trending: Movie[] }) => {
 
   return (
     <>
-      <div className="absolute top-0 left-0 h-screen z-[-1] w-full bg-center bg-cover px-9">
+      <div className="absolute top-0 left-0 h-screen z-[-1] w-full bg-center bg-cover px-9 overflow-hidden">
         {trending ? (
           <>
             <Image

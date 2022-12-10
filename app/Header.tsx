@@ -14,7 +14,7 @@ const Header = async () => {
 
   return (
     <>
-      <div className="header h-screen">
+      <div className="header h-screen mb-[-15em]">
         <Navbar />
         <Banner trending={trending} />
         <div className="fadeBottom"></div>
