@@ -11,8 +11,9 @@ interface Props {
 }
 
 const Rows = ({ title, movies }: Props) => {
-  const widthPerMovie = 297;
+  //const widthPerMovie = 297;
   const moviePerScroll = 6;
+
   const rowRef = useRef<HTMLDivElement>(null);
   const [isMoved, setIsMoved] = useState(false);
 
@@ -21,6 +22,9 @@ const Rows = ({ title, movies }: Props) => {
 
     if (rowRef.current) {
       const { scrollLeft, clientWidth } = rowRef.current;
+      const clientWidthMinusPadding = clientWidth - (clientWidth * 6.3) / 100;
+      const widthPerMovie = Math.round(clientWidthMinusPadding / 6);
+
       const scrollTo =
         direction === "left"
           ? scrollLeft - widthPerMovie * moviePerScroll
@@ -36,7 +40,8 @@ const Rows = ({ title, movies }: Props) => {
         {title}
       </h2>
       <div className="group relative">
-        <div className="nav-bg">
+        <div>
+          <div className="nav-bg-left px-[28px;] absolute z-30 top-0 bottom-0 left-0 m-auto h-auto"></div>
           <BsChevronLeft
             className={`absolute top-0 bottom-0 left-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100 ${
               !isMoved && "hidden"
@@ -61,7 +66,8 @@ const Rows = ({ title, movies }: Props) => {
             </div>
           ))}
         </div>
-        <div className="nav-bg">
+        <div>
+          <div className="nav-bg-right px-[28px;] absolute z-30 top-0 bottom-0 right-0 m-auto h-auto"></div>
           <BsChevronRight
             className="absolute top-0 bottom-0 right-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100"
             onClick={() => handleClick("right")}

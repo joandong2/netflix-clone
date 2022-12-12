@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Open+Sans:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&family=Righteous&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -73,10 +73,11 @@ body {
 }
 
 .movie__title {
-  font-family: "Bungee Shade", cursive;
+  font-family: "Righteous", cursive;
   font-size: 72px;
   line-height: 78px;
   color: #e9292c;
+  text-shadow: 0 0 3px #ff0000, 0 0 5px #040404;
 }
 
 .movie__list {
@@ -91,8 +92,7 @@ body {
 }
 
 .movie__thumb {
-  width: 16.66666667%;
-  min-width: 297px;
+  /* min-width: 297px; */
   cursor: pointer;
   object-fit: contain;
   box-sizing: border-box;
@@ -105,10 +105,9 @@ body {
   transform: scale(1.08);
 }
 
-.nav-bg {
-  /* background: hsla(0, 0%, 8%, 0.5); */
-  background: red;
-  width: 60px;
+.nav-bg-left,
+.nav-bg-right {
+  background: hsla(0, 0%, 8%, 0.5);
 }
 
 /* .group a,
