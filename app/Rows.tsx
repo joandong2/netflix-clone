@@ -41,7 +41,7 @@ const Rows = ({ title, movies }: Props) => {
       </h2>
       <div className="group relative">
         <div>
-          <div className="nav-bg-left px-[28px;] absolute z-30 top-0 bottom-0 left-0 m-auto h-auto"></div>
+          <div className="nav-bg-left absolute z-30 top-0 bottom-0 left-0 m-auto h-auto rounded-md"></div>
           <BsChevronLeft
             className={`absolute top-0 bottom-0 left-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100 ${
               !isMoved && "hidden"
@@ -61,13 +61,13 @@ const Rows = ({ title, movies }: Props) => {
                 alt="image-banner"
                 width="300"
                 height="165"
-                className="rounded-sm object-cover"
+                className="rounded-md object-cover"
               />
             </div>
           ))}
         </div>
         <div>
-          <div className="nav-bg-right px-[28px;] absolute z-30 top-0 bottom-0 right-0 m-auto h-auto"></div>
+          <div className="nav-bg-right absolute z-30 top-0 bottom-0 right-0 m-auto h-auto rounded-md"></div>
           <BsChevronRight
             className="absolute top-0 bottom-0 right-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100"
             onClick={() => handleClick("right")}

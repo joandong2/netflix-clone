@@ -93,6 +93,7 @@ body {
 
 .movie__thumb {
   /* min-width: 297px; */
+  min-width: calc((100% - (100% * 0) / 100) / 6);
   cursor: pointer;
   object-fit: contain;
   box-sizing: border-box;
@@ -108,6 +109,7 @@ body {
 .nav-bg-left,
 .nav-bg-right {
   background: hsla(0, 0%, 8%, 0.5);
+  width: 60px;
 }
 
 /* .group a,
