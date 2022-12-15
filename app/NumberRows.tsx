@@ -10,7 +10,7 @@ interface Props {
   movies: Movie[];
 }
 
-const Rows = ({ title, movies }: Props) => {
+const NumberRows = ({ title, movies }: Props) => {
   //const widthPerMovie = 297;
   const moviePerScroll = 6;
 
@@ -51,18 +51,21 @@ const Rows = ({ title, movies }: Props) => {
         </div>
 
         <div className="movie__list" ref={rowRef}>
-          {movies?.map((movie) => (
+          {movies?.slice(0, 10).map((movie, index) => (
             <div className="movie__thumb" key={movie.id}>
-              {/* @ts-ignore */}
-              <Image
-                src={`https://image.tmdb.org/t/p/original${
-                  movie?.backdrop_path || movie?.poster_path
-                }`}
-                alt="image-banner"
-                width="300"
-                height="165"
-                className="rounded-md object-cover"
-              />
+              <div className="movie__thumb_numbered">
+                {/* @ts-ignore */}
+                <p className={`movie__num movie__num-${index + 1}`}>
+                  {index + 1}
+                </p>
+                <Image
+                  src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`}
+                  alt="image-banner"
+                  width="145"
+                  height="207"
+                  className="rounded-md object-cover"
+                />
+              </div>
             </div>
           ))}
         </div>
@@ -78,4 +81,4 @@ const Rows = ({ title, movies }: Props) => {
   );
 };
 
-export default Rows;
+export default NumberRows;

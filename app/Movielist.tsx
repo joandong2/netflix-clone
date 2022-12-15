@@ -1,6 +1,7 @@
 import React from "react";
 import { Movie, Movies } from "../typing";
 import Rows from "./Rows";
+import NumberRows from "./NumberRows";
 
 async function getMovieLists() {
   const [popularResults, trendingResults] = await Promise.all([
@@ -28,8 +29,9 @@ const Movielist = async () => {
 
   return (
     <>
-      <Rows title="Trending" movies={trending} />
-      <Rows title="Popular" movies={popular} />
+      <Rows title="Popular on Netflix" movies={popular} />
+      <Rows title="Trending Now" movies={trending} />
+      <NumberRows title="Top 10 Movies in the U.S. Today" movies={trending} />
     </>
   );
 };

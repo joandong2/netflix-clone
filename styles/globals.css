@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&family=Righteous&family=Russo+One&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -92,8 +92,8 @@ body {
 }
 
 .movie__thumb {
-  /* min-width: 297px; */
-  min-width: calc((100% - (100% * 0) / 100) / 6);
+  min-width: 16.66666667%;
+  max-width: 16.66666667%;
   cursor: pointer;
   object-fit: contain;
   box-sizing: border-box;
@@ -104,6 +104,27 @@ body {
 
 .movie__thumb:hover {
   transform: scale(1.08);
+}
+
+.movie__thumb_numbered {
+  display: flex;
+  align-items: center;
+}
+
+.movie__num {
+  font-family: "Russo One", sans-serif;
+  font-size: 17em;
+  margin-right: -5px;
+  font-weight: bold;
+  line-height: 20px;
+  -webkit-text-fill-color: black;
+  -webkit-text-stroke-color: #666;
+  -webkit-text-stroke-width: 1px;
+  letter-spacing: -10px;
+}
+
+.movie__num-10 {
+  letter-spacing: -20px;
 }
 
 .nav-bg-left,
