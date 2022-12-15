@@ -35,7 +35,7 @@ const NumberRows = ({ title, movies }: Props) => {
   };
 
   return (
-    <div className="mb-20">
+    <div className="mb-[35px]">
       <h2 className="text-[32px] font-bold text-[#e5e5e5] hover:text-white px-9 pl-[60px]">
         {title}
       </h2>

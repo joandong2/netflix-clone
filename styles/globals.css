@@ -113,8 +113,8 @@ body {
 
 .movie__num {
   font-family: "Russo One", sans-serif;
-  font-size: 17em;
-  margin-right: -5px;
+  font-size: 16em;
+  margin-right: -25px;
   font-weight: bold;
   line-height: 20px;
   -webkit-text-fill-color: black;
