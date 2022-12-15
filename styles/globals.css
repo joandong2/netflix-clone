@@ -84,7 +84,8 @@ body {
   display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
-  padding: 0 60px;
+  padding: 40px 0;
+  margin-bottom: -140px;
 }
 
 .movie__list::-webkit-scrollbar {
@@ -94,16 +95,64 @@ body {
 .movie__thumb {
   min-width: 16.66666667%;
   max-width: 16.66666667%;
+  min-width: 293.33333px;
   cursor: pointer;
   object-fit: contain;
   box-sizing: border-box;
-  display: inline-block;
-  padding: 0 5px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
   transition: transform 450ms;
 }
 
 .movie__thumb:hover {
-  transform: scale(1.08);
+  transform: scale(1.35);
+  z-index: 999;
+}
+
+.movie__thumb .thumb__details {
+  visibility: hidden;
+  padding: 12px;
+  background: #141414;
+  border: 1px solid #181818;
+  z-index: 999;
+  position: relative;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.movie__thumb:hover img {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.movie__thumb:hover .thumb__details {
+  visibility: visible;
+}
+
+.thumb__details {
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.thumb__details ul.buttons li {
+  border: 1px solid #666666;
+  padding: 8px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  margin-right: 7px;
+}
+
+.thumb__details ul.buttons svg {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.thumb__details ul.buttons li:first-child {
+  background: #fff;
+  border: 1px solid #000;
+  color: #000;
 }
 
 .movie__thumb_numbered {
@@ -131,6 +180,7 @@ body {
 .nav-bg-right {
   background: hsla(0, 0%, 8%, 0.5);
   width: 60px;
+  max-height: 175px;
 }
 
 /* .group a,

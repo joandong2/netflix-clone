@@ -31,7 +31,6 @@ const Movielist = async () => {
     <>
       <Rows title="Popular on Netflix" movies={popular} />
       <Rows title="Trending Now" movies={trending} />
-      <NumberRows title="Top 10 Movies in the U.S. Today" movies={trending} />
     </>
   );
 };
