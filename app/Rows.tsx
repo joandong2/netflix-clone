@@ -17,6 +17,8 @@ interface Props {
 const Rows = ({ title, movies }: Props) => {
   //const widthPerMovie = 297;
   const moviePerScroll = 6;
+  var min = 1,
+    max = 5;
 
   const rowRef = useRef<HTMLDivElement>(null);
   const [isMoved, setIsMoved] = useState(false);
@@ -38,16 +40,17 @@ const Rows = ({ title, movies }: Props) => {
     }
   };
 
+  //console.log(movies);
+
   return (
     <div>
       <h2 className="text-[28px] font-medium text-[#e5e5e5] hover:text-white px-9 pl-[60px]">
         {title}
       </h2>
       <div className="group relative">
-        <div>
-          <div className="nav-bg-left absolute z-30 top-0 bottom-0 left-0 m-auto h-auto rounded-tr-md rounded-br-md"></div>
+        <div className="mb-[-50px]">
           <BsChevronLeft
-            className={`absolute top-0 bottom-0 left-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100 ${
+            className={`absolute top-[-30%] bottom-0 left-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100 ${
               !isMoved && "hidden"
             }`}
             onClick={() => handleClick("left")}
@@ -56,16 +59,25 @@ const Rows = ({ title, movies }: Props) => {
         <div className="movie__list" ref={rowRef}>
           {movies?.map((movie) => (
             <div className="movie__thumb" key={movie.id}>
-              {/* @ts-ignore */}
-              <Image
-                src={`https://image.tmdb.org/t/p/original${
-                  movie?.backdrop_path || movie?.poster_path
-                }`}
-                alt="image-banner"
-                width="300"
-                height="165"
-                className="rounded-md object-cover"
-              />
+              <div className="relative">
+                <p
+                  className={`absolute font__style-${Math.floor(
+                    min + Math.random() * (max - min)
+                  )}`}
+                >
+                  {movie.title ? movie.title : movie.original_title}
+                </p>
+                {/* @ts-ignore */}
+                <Image
+                  src={`https://image.tmdb.org/t/p/original${
+                    movie?.backdrop_path || movie?.poster_path
+                  }`}
+                  alt="image-banner"
+                  width="300"
+                  height="165"
+                  className="rounded-md object-cover"
+                />
+              </div>
               <div className="thumb__details">
                 <div className="flex justify-between items-center mb-[8px]">
                   <ul className="flex buttons">
@@ -118,9 +130,8 @@ const Rows = ({ title, movies }: Props) => {
           ))}
         </div>
         <div>
-          <div className="nav-bg-right absolute z-30 top-0 bottom-0 right-0 m-auto h-auto rounded-tl-md rounded-bl-md"></div>
           <BsChevronRight
-            className="absolute top-0 bottom-0 right-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100"
+            className="absolute top-[-30%] bottom-0 right-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100"
             onClick={() => handleClick("right")}
           />
         </div>
