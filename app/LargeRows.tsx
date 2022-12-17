@@ -14,7 +14,7 @@ interface Props {
   movies: Movie[];
 }
 
-const Rows = ({ title, movies }: Props) => {
+const LargeRows = ({ title, movies }: Props) => {
   //const widthPerMovie = 297;
   const moviePerScroll = 6;
   var min = 1,
@@ -50,23 +50,16 @@ const Rows = ({ title, movies }: Props) => {
       <div className="group relative">
         <div className="mb-[-50px]">
           <BsChevronLeft
-            className={`absolute top-[-30%] bottom-0 left-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100 ${
+            className={`absolute top-[-15%] bottom-0 left-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100 ${
               !isMoved && "hidden"
             }`}
             onClick={() => handleClick("left")}
           />
         </div>
-        <div className="movie__list" ref={rowRef}>
+        <div className="movie__list originals" ref={rowRef}>
           {movies?.map((movie) => (
             <div className="movie__thumb" key={movie.id}>
               <div className="relative">
-                <p
-                  className={`absolute font__style-${Math.floor(
-                    min + Math.random() * (max - min)
-                  )}`}
-                >
-                  {movie.title ? movie.title : movie.original_title}
-                </p>
                 {/* @ts-ignore */}
                 <Image
                   src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`}
@@ -129,7 +122,7 @@ const Rows = ({ title, movies }: Props) => {
         </div>
         <div>
           <BsChevronRight
-            className="absolute top-[-30%] bottom-0 right-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100"
+            className="absolute top-[-15%] bottom-0 right-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100"
             onClick={() => handleClick("right")}
           />
         </div>
@@ -138,4 +131,4 @@ const Rows = ({ title, movies }: Props) => {
   );
 };
 
-export default Rows;
+export default LargeRows;
