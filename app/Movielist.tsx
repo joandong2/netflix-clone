@@ -1,5 +1,5 @@
 import React from "react";
-import { Movie, Movies } from "../typing";
+import { Genre, Movie, Movies } from "../typing";
 import Rows from "./Rows";
 import LargeRows from "./LargeRows";
 
@@ -19,6 +19,7 @@ async function getMovieLists() {
     originalsResults,
     actionResults,
     topRatedResults,
+    genresResults,
   ] = await Promise.all([
     fetch(
       `${process.env.BASE_URL}/movie/popular?api_key=${process.env.IMDB_API_KEY}&language=en-US&page=1`
@@ -27,7 +28,7 @@ async function getMovieLists() {
       `${process.env.BASE_URL}/trending/all/day?api_key=${process.env.IMDB_API_KEY}&language=en-US&page=1`
     ),
     fetch(
-      `${process.env.BASE_URL}/discover/movie?api_key=${process.env.IMDB_API_KEY}&language=en-US&with_networks=213`
+      `${process.env.BASE_URL}/discover/movie?api_key=${process.env.IMDB_API_KEY}&language=en-US&with_networks=213&include_video=true`
     ),
     fetch(
       `${process.env.BASE_URL}/discover/movie?api_key=${process.env.IMDB_API_KEY}&language=en-US&with_genres=28`
@@ -35,14 +36,19 @@ async function getMovieLists() {
     fetch(
       `${process.env.BASE_URL}/movie/top_rated?api_key=${process.env.IMDB_API_KEY}&language=en-USpage=1`
     ),
+    fetch(
+      `${process.env.BASE_URL}/genre/movie/list?api_key=${process.env.IMDB_API_KEY}&language=en-USpage=1`
+    ),
   ]);
-  const [popular, trending, originals, action, topRated] = await Promise.all([
-    popularResults.json(),
-    trendingResults.json(),
-    originalsResults.json(),
-    actionResults.json(),
-    topRatedResults.json(),
-  ]);
+  const [popular, trending, originals, action, topRated, genres] =
+    await Promise.all([
+      popularResults.json(),
+      trendingResults.json(),
+      originalsResults.json(),
+      actionResults.json(),
+      topRatedResults.json(),
+      genresResults.json(),
+    ]);
 
   return {
     popular: popular.results,
@@ -50,6 +56,7 @@ async function getMovieLists() {
     originals: originals.results,
     action: action.results,
     topRated: topRated.results,
+    genres: genres.genres,
   };
 }
 
@@ -60,21 +67,23 @@ const Movielist = async () => {
     originals,
     action,
     topRated,
+    genres,
   }: {
     popular: Movie[];
     trending: Movie[];
     originals: Movie[];
     action: Movie[];
     topRated: Movie[];
+    genres: Genre[];
   } = await getMovieLists();
 
   return (
     <>
-      <Rows title="Popular on Netflix" movies={popular} />
-      <Rows title="Trending Now" movies={trending} />
-      <LargeRows title="Netflix Originals" movies={originals} />
+      <Rows title="Popular on Netflix" movies={popular} genres={genres} />
+      {/* <Rows title="Trending Now" movies={trending} />
+      <Rows title="Netflix Originals" movies={originals} />
       <Rows title="Top Rated Movies" movies={topRated} />
-      <Rows title="Actions Movies" movies={action} />
+      <Rows title="Actions Movies" movies={action} /> */}
     </>
   );
 };

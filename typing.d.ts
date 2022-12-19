@@ -8,6 +8,11 @@ export interface Movies {
   page: number;
 }
 
+export interface Genre {
+  id: number;
+  name: string;
+}
+
 export interface Movie {
   title: string;
   backdrop_path: string;

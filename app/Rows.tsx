@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import Image from "next/image";
-import { Movie } from "../typing";
+import { Movie, Genre } from "../typing";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { FaPlay, FaThumbsUp } from "react-icons/fa";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -12,9 +12,10 @@ import { SlArrowDown } from "react-icons/sl";
 interface Props {
   title: string;
   movies: Movie[];
+  genres: Genre[];
 }
 
-const Rows = ({ title, movies }: Props) => {
+const Rows = ({ title, movies, genres }: Props) => {
   //const widthPerMovie = 297;
   const moviePerScroll = 6;
   var min = 1,
@@ -40,7 +41,7 @@ const Rows = ({ title, movies }: Props) => {
     }
   };
 
-  //console.log(movies);
+  console.log(genres);
 
   return (
     <div>
@@ -60,20 +61,12 @@ const Rows = ({ title, movies }: Props) => {
           {movies?.map((movie) => (
             <div className="movie__thumb" key={movie.id}>
               <div className="relative">
-                <p
-                  className={`absolute font__style-${Math.floor(
-                    min + Math.random() * (max - min)
-                  )}`}
-                >
-                  {movie.title ? movie.title : movie.original_title}
-                </p>
-                {/* @ts-ignore */}
                 <Image
                   src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`}
                   alt="image-banner"
                   width="300"
                   height="165"
-                  className="rounded-md object-cover"
+                  className="rounded-md"
                 />
               </div>
               <div className="thumb__details">
@@ -111,15 +104,14 @@ const Rows = ({ title, movies }: Props) => {
                 </div>
                 <div className="flex">
                   <ul className="flex space-x-1 items-center">
-                    <li>Thriller</li>
-                    <li>
-                      <RxDotFilled />
-                    </li>
-                    <li>Mystery</li>
-                    <li>
-                      <RxDotFilled />
-                    </li>
-                    <li>Horror</li>
+                    {movie.genre_ids.map((cat_id) =>
+                      genres?.map((genre) => {
+                        if (genre.id == cat_id) {
+                          return <li>{genre.name}</li>;
+                        }
+                        return null;
+                      })
+                    )}
                   </ul>
                 </div>
               </div>

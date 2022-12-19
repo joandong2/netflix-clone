@@ -14,7 +14,7 @@ export default function RootLayout({
       <body>
         {/* @ts-ignore */}
         <Header />
-        <main className="relative z-10">{children}</main>
+        <main className="relative z-10 mt-[-15em]">{children}</main>
         <Footer />
       </body>
     </html>

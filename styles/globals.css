@@ -28,7 +28,6 @@ body {
 
 .header {
   position: relative;
-  z-index: 10;
   transition: all 0.5s ease-out;
   background-color: unset;
 }
@@ -37,8 +36,8 @@ body {
   background-color: #2b2b2b;
   position: fixed;
   width: 100%;
-  z-index: 2;
   transition: all 0.5s ease-in;
+  z-index: 9999;
 }
 
 .header svg {
@@ -84,24 +83,24 @@ body {
   display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
-  padding: 60px 25px;
-  margin-bottom: -140px;
+  padding: 70px 25px 90px;
+  margin-bottom: -180px;
 }
 
-.movie__list.originals {
+/* .movie__list.originals {
   padding: 90px 25px;
-  margin-bottom: -140px;
-}
+  /* margin-bottom: -140px;
+} */
 
 .movie__list::-webkit-scrollbar {
   display: none;
 }
 
 .movie__thumb {
-  min-width: 16.66666667%;
+  /* min-width: 16.66666667%;
   max-width: 16.66666667%;
   min-width: 293.33333px;
-  max-height: 165px;
+  max-height: 165px; */
   cursor: pointer;
   object-fit: contain;
   box-sizing: border-box;

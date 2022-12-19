@@ -9,15 +9,6 @@ import { AiFillPlayCircle, AiFillInfoCircle } from "react-icons/ai";
 // }
 
 const Banner = ({ trending }: { trending: Movie[] }) => {
-  // const [movie, setMovie] = useState<Movie>();
-
-  // useEffect(() => {
-  //   //setMovie(trending[Math.floor(Math.random() * trending.length)]);
-  //   setMovie(trending[1]);
-  // }, [trending]);
-
-  // console.log("trending", trending);
-
   return (
     <>
       <div className="absolute top-0 left-0 h-screen z-[-1] w-full bg-center bg-cover px-9 overflow-hidden">
@@ -25,14 +16,14 @@ const Banner = ({ trending }: { trending: Movie[] }) => {
           <>
             <Image
               src={`https://image.tmdb.org/t/p/original${
-                trending[4]?.backdrop_path || trending[4]?.poster_path
+                trending[2]?.backdrop_path || trending[2]?.poster_path
               }`}
               layout="fill"
               alt="banner"
             />
             <div className="z-10 relative align-center flex flex-col justify-center h-screen px-2">
               <h1 className="movie__title text-3xl mb-5">
-                {trending[4].original_title}
+                {trending[2].original_title}
               </h1>
               <div className="flex gap-4">
                 <button className="text-[20px] bg-white hover:bg-light-gray text-black font-bold py-2 px-4 rounded inline-flex items-center">
