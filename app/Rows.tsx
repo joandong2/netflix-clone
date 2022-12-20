@@ -41,7 +41,7 @@ const Rows = ({ title, movies, genres }: Props) => {
     }
   };
 
-  console.log(genres);
+  //console.log(genres);
 
   return (
     <div>
@@ -103,7 +103,7 @@ const Rows = ({ title, movies, genres }: Props) => {
                   <p className="border border-white py-[1px] px-[6px]">HD</p>
                 </div>
                 <div className="flex">
-                  <ul className="flex space-x-1 items-center">
+                  <ul className="categories flex space-x-1 items-center">
                     {movie.genre_ids.map((cat_id) =>
                       genres?.map((genre) => {
                         if (genre.id == cat_id) {

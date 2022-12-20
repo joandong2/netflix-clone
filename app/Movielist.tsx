@@ -80,10 +80,10 @@ const Movielist = async () => {
   return (
     <>
       <Rows title="Popular on Netflix" movies={popular} genres={genres} />
-      {/* <Rows title="Trending Now" movies={trending} />
-      <Rows title="Netflix Originals" movies={originals} />
-      <Rows title="Top Rated Movies" movies={topRated} />
-      <Rows title="Actions Movies" movies={action} /> */}
+      <Rows title="Trending Now" movies={trending} genres={genres} />
+      <Rows title="Netflix Originals" movies={originals} genres={genres} />
+      <Rows title="Top Rated Movies" movies={topRated} genres={genres} />
+      <Rows title="Actions Movies" movies={action} genres={genres} />
     </>
   );
 };

@@ -25,6 +25,9 @@ const Banner = ({ trending }: { trending: Movie[] }) => {
               <h1 className="movie__title text-3xl mb-5">
                 {trending[2].original_title}
               </h1>
+              <h1 className="text-2xl mb-5 max-w-[960px]">
+                {trending[2].overview}
+              </h1>
               <div className="flex gap-4">
                 <button className="text-[20px] bg-white hover:bg-light-gray text-black font-bold py-2 px-4 rounded inline-flex items-center">
                   <AiFillPlayCircle />

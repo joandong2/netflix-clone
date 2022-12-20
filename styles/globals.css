@@ -160,6 +160,20 @@ body {
   color: #000;
 }
 
+.categories {
+  flex-wrap: wrap;
+}
+
+.categories li::after {
+  content: "\2022";
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.categories li:last-child::after {
+  content: unset;
+}
+
 .movie__thumb_numbered {
   display: flex;
   align-items: center;
