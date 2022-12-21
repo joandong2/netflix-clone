@@ -1,7 +1,6 @@
 import React from "react";
 import { Genre, Movie, Movies } from "../typing";
 import Rows from "./Rows";
-import LargeRows from "./LargeRows";
 
 // fetchTrending: `${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=en-US`,
 //   fetchNetflixOriginals: `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_networks=213`,

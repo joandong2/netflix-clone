@@ -73,10 +73,10 @@ body {
 
 .movie__title {
   font-family: "Righteous", cursive;
-  font-size: 72px;
-  line-height: 78px;
-  color: #e9292c;
-  text-shadow: 0 0 3px #ff0000, 0 0 5px #040404;
+  font-size: 94px;
+  line-height: 102px;
+  color: #fff;
+  text-shadow: 0 1px 1px #000, 0 0 1px #000000;
 }
 
 .movie__list {

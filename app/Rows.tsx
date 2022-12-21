@@ -6,8 +6,8 @@ import { Movie, Genre } from "../typing";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { FaPlay, FaThumbsUp } from "react-icons/fa";
 import { AiOutlinePlus } from "react-icons/ai";
-import { RxDotFilled } from "react-icons/rx";
 import { SlArrowDown } from "react-icons/sl";
+import MovieDetails from "./MovieDetails";
 
 interface Props {
   title: string;
@@ -23,6 +23,7 @@ const Rows = ({ title, movies, genres }: Props) => {
 
   const rowRef = useRef<HTMLDivElement>(null);
   const [isMoved, setIsMoved] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleClick = (direction: string) => {
     setIsMoved(true);
@@ -41,7 +42,7 @@ const Rows = ({ title, movies, genres }: Props) => {
     }
   };
 
-  //console.log(genres);
+  //console.log(movies);
 
   return (
     <div>
@@ -59,64 +60,77 @@ const Rows = ({ title, movies, genres }: Props) => {
         </div>
         <div className="movie__list" ref={rowRef}>
           {movies?.map((movie) => (
-            <div className="movie__thumb" key={movie.id}>
-              <div className="relative">
-                <Image
-                  src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`}
-                  alt="image-banner"
-                  width="300"
-                  height="165"
-                  className="rounded-md"
-                />
+            <>
+              <div className="movie__thumb" key={movie.id}>
+                <div className="relative">
+                  <Image
+                    src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`}
+                    alt="image-banner"
+                    width="300"
+                    height="165"
+                    className="rounded-md"
+                  />
+                </div>
+                <div
+                  className="thumb__details"
+                  onClick={() => {
+                    setIsOpen(true);
+                  }}
+                >
+                  <div className="flex justify-between items-center mb-[8px]">
+                    <ul className="flex buttons">
+                      <li>
+                        <a href="#">
+                          <FaPlay />
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <AiOutlinePlus />
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <FaThumbsUp />
+                        </a>
+                      </li>
+                    </ul>
+                    <ul className="flex buttons">
+                      <li>
+                        <a href="#">
+                          <SlArrowDown />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="flex items-center space-x-2 mb-[8px]">
+                    <p className="text-green-700 font-bold">83% Match</p>
+                    <p className="border border-white py-[1px] px-[6px]">R</p>
+                    <p className="font-bold">2h 33m</p>
+                    <p className="border border-white py-[1px] px-[6px]">HD</p>
+                  </div>
+                  <div className="flex">
+                    <ul className="categories flex space-x-1 items-center">
+                      {movie.genre_ids.map((cat_id) =>
+                        genres?.map((genre) => {
+                          if (genre.id == cat_id) {
+                            return <li key={genre.id}>{genre.name}</li>;
+                          }
+                          return null;
+                        })
+                      )}
+                    </ul>
+                  </div>
+                </div>
+                {/*thumb__details*/}
               </div>
-              <div className="thumb__details">
-                <div className="flex justify-between items-center mb-[8px]">
-                  <ul className="flex buttons">
-                    <li>
-                      <a href="#">
-                        <FaPlay />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <AiOutlinePlus />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <FaThumbsUp />
-                      </a>
-                    </li>
-                  </ul>
-                  <ul className="flex buttons">
-                    <li>
-                      <a href="#">
-                        <SlArrowDown />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="flex items-center space-x-2 mb-[8px]">
-                  <p className="text-green-700 font-bold">83% Match</p>
-                  <p className="border border-white py-[1px] px-[6px]">R</p>
-                  <p className="font-bold">2h 33m</p>
-                  <p className="border border-white py-[1px] px-[6px]">HD</p>
-                </div>
-                <div className="flex">
-                  <ul className="categories flex space-x-1 items-center">
-                    {movie.genre_ids.map((cat_id) =>
-                      genres?.map((genre) => {
-                        if (genre.id == cat_id) {
-                          return <li>{genre.name}</li>;
-                        }
-                        return null;
-                      })
-                    )}
-                  </ul>
-                </div>
-              </div>
-              {/*thumb__details*/}
-            </div>
+              {/* @ts-ignore */}
+              <MovieDetails
+                movieId={movie?.id}
+                setIsOpen={setIsOpen}
+                isOpen={isOpen}
+              />
+            </>
           ))}
         </div>
         <div>
