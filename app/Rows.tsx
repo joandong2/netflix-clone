@@ -7,7 +7,7 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { FaPlay, FaThumbsUp } from "react-icons/fa";
 import { AiOutlinePlus } from "react-icons/ai";
 import { SlArrowDown } from "react-icons/sl";
-import MovieDetails from "./MovieDetails";
+import MoviePopup from "./MoviePopup";
 
 interface Props {
   title: string;
@@ -18,12 +18,11 @@ interface Props {
 const Rows = ({ title, movies, genres }: Props) => {
   //const widthPerMovie = 297;
   const moviePerScroll = 6;
-  var min = 1,
-    max = 5;
 
   const rowRef = useRef<HTMLDivElement>(null);
   const [isMoved, setIsMoved] = useState(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [currentMovieId, setCurrentMovieId] = useState<number | null>(null);
 
   const handleClick = (direction: string) => {
     setIsMoved(true);
@@ -42,7 +41,10 @@ const Rows = ({ title, movies, genres }: Props) => {
     }
   };
 
-  //console.log(movies);
+  const onClickPopup = (id: number) => {
+    console.log("onclick func id", id);
+    return <MoviePopup movieId={id} />;
+  };
 
   return (
     <div>
@@ -59,8 +61,8 @@ const Rows = ({ title, movies, genres }: Props) => {
           />
         </div>
         <div className="movie__list" ref={rowRef}>
-          {movies?.map((movie) => (
-            <>
+          {movies &&
+            movies?.map((movie) => (
               <div className="movie__thumb" key={movie.id}>
                 <div className="relative">
                   <Image
@@ -73,8 +75,10 @@ const Rows = ({ title, movies, genres }: Props) => {
                 </div>
                 <div
                   className="thumb__details"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModalCenteredScrollable"
                   onClick={() => {
-                    setIsOpen(true);
+                    onClickPopup(movie.id);
                   }}
                 >
                   <div className="flex justify-between items-center mb-[8px]">
@@ -124,14 +128,7 @@ const Rows = ({ title, movies, genres }: Props) => {
                 </div>
                 {/*thumb__details*/}
               </div>
-              {/* @ts-ignore */}
-              <MovieDetails
-                movieId={movie?.id}
-                setIsOpen={setIsOpen}
-                isOpen={isOpen}
-              />
-            </>
-          ))}
+            ))}
         </div>
         <div>
           <BsChevronRight

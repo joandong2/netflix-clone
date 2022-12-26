@@ -1,5 +1,6 @@
 import React from "react";
 import { Genre, Movie, Movies } from "../typing";
+import MoviePopup from "./MoviePopup";
 import Rows from "./Rows";
 
 // fetchTrending: `${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=en-US`,
@@ -83,6 +84,7 @@ const Movielist = async () => {
       <Rows title="Netflix Originals" movies={originals} genres={genres} />
       <Rows title="Top Rated Movies" movies={topRated} genres={genres} />
       <Rows title="Actions Movies" movies={action} genres={genres} />
+      {/* <MoviePopup /> */}
     </>
   );
 };

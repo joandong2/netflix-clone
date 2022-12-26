@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/globals.css";
 import Footer from "./Footer";
 import Header from "./Header";
+import ReactQueryWrapper from "./ReactQueryWrapper";
 
 export default function RootLayout({
   children,
@@ -12,10 +13,12 @@ export default function RootLayout({
     <html>
       <head></head>
       <body>
-        {/* @ts-ignore */}
-        <Header />
-        <main className="relative z-10 mt-[-15em]">{children}</main>
-        <Footer />
+        <ReactQueryWrapper>
+          {/* @ts-ignore */}
+          <Header />
+          <main className="relative z-10 mt-[-15em]">{children}</main>
+          <Footer />
+        </ReactQueryWrapper>
       </body>
     </html>
   );

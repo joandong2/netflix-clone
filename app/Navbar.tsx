@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <>
       <div
-        className={`flex px-12 py-6 mb-[15em] justify-between items-center ${
+        className={`flex px-12 py-6 justify-between items-center ${
           fixedNavbar ? "active" : ""
         }`}
       >
