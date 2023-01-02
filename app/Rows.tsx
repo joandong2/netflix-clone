@@ -43,7 +43,8 @@ const Rows = ({ title, movies, genres }: Props) => {
 
   const onClickPopup = (id: number) => {
     console.log("onclick func id", id);
-    return <MoviePopup movieId={id} />;
+
+    <MoviePopup movieId={id} />;
   };
 
   return (
